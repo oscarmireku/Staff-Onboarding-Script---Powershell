@@ -2,7 +2,7 @@
 Import-Module ActiveDirectory
 
 # Define CSV file path 
-$csvPath = "C:\frederictonStaff.csv"
+$csvPath = "path to csv"
 
 # Import users from CSV
 $users = Import-Csv -Path $csvPath  
@@ -72,4 +72,5 @@ foreach ($user in $users) {
         "HR"        { Add-ADGroupMember -Identity "HR" -Members $samAccountName }
         default     { Write-Host "Unknown department: $($user.Department)" }
     }
+
 }
